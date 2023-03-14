@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" >
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Bootstrap css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+
+        <title>Portal | Axios</title>
+    </head>
+
+    <body>
+
+        <!-- Nav bar -->
+        <nav class="navbar navbar-dark bg-dark">
+            <a href="#" class="navbar-brand"> Portal | Axios</a>
+        </nav>
+        <!-- Employee Portal Intro -->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col">
+                    <h1>Employee Portal</h1>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eum architecto voluptatum quia nobis deleniti dignissimos quasi, fugiat nostrum. Suscipit, mollitia necessitatibus. Voluptas quae delectus laborum maxime culpa quaerat sapiente!</p>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-employee-modal">Add Employee</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee table -->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-hover table-striped table-secondary text-center">
+                        <thead class="bg-dark text-black">
+                            <tr>
+                                <th>Emp ID</th>
+                                <th>First Name </th>
+                                <th>Last Name </th>
+                                <th>Email </th>
+                                <th>Gender </th>
+                                <th>IP Address </th>
+                                <th>Actions </th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Employee modal -->
+        <div class="modal" id="add-employee-modal">
+            <div class="modal-dialog">
+                <div class="modal-content animated slide-in-left">
+                    <div class="modal-header bg-success text-white">
+                        <h3>Add Employee</h3>
+                        <button class="btn-close" data-bs-dismiss="modal">
+                            <i class="fa fa-times-circle"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body bg-light">
+                        <form id="add-employee-form">
+                            <div class="form-group mt-3">
+                                <input required id="add-first-name" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="form-group mt-3">
+                                <input required  id="add-last-name" type="text" class="form-control" placeholder="Last Name">
+                            </div>
+                            <div class="form-group mt-3">
+                                <input required  id="add-email" type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group mt-3">
+                                <select required  id="add-gender" class="form-control">
+                                    <option value=""> Select Gender</option>
+                                    <option value="Male"> Male </option>
+                                    <option value="Female">Female</option>
+                                    <option value="Trans"> Trans </option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input required  id="add-ip-address" type="text" class="form-control" placeholder="IP Address">
+                            </div>
+                            <div class="form-group mt-3">
+                                <input  type="submit" class="btn btn-success" value="Add Employee">
+                            </div>                         
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <!-- update Employee modal -->
+                <div class="modal" id="update-employee-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content animated slide-in-right">
+                            <div class="modal-header bg-secondary text-white">
+                                <h3>Update Employee</h3>
+                                <button class="btn-close" data-bs-dismiss="modal">
+                                    <i class="fa fa-times-circle"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body bg-light">
+                                <form id="update-employee-form">
+                                    <div class="form-group mt-3">
+                                        <input hidden required id="update-emp-id" type="text" class="form-control" placeholder="Employee ID">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input required id="update-first-name" type="text" class="form-control" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input required  id="update-last-name" type="text" class="form-control" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input required  id="update-email" type="email" class="form-control" placeholder="Email">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <select required  id="update-gender" class="form-control">
+                                            <option value=""> Select Gender</option>
+                                            <option value="Male"> Male </option>
+                                            <option value="Female">Female</option>
+                                            <option value="other"> +1 </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input required  id="update-ip-address" type="text" class="form-control" placeholder="IP Address">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input  type="submit" class="btn btn-secondary" value="update Employee">
+                                    </div>                         
+                                </form>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Application js -->
+    <script src="axios.min.js"></script>
+    <script type="module" src="app.js"></script>
+    </body>
+</html>
